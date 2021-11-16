@@ -13,7 +13,7 @@ iterations = int(input("How many iterations? "))
 currentIteration = 0
 timer = 0
 
-# 50/50 to pick a startin weapon
+# 50/50 to pick a starting weapon
 coinFlip = random.randint(0, 1)
 weapon = ""
 if coinFlip == 0:
