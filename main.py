@@ -25,14 +25,17 @@ if armorTier == 1:
     bowAcc = 6706
     staffAcc = 7044
     hunllefAcc = 6071
+    hunllefMax = 13
 if armorTier == 2:
     bowAcc = 6858
     staffAcc = 7172
     hunllefAcc = 5080
+    hunllefMax = 10
 if armorTier == 3:
     bowAcc = 6993
     staffAcc = 7290
     hunllefAcc = 4205
+    hunllefMax = 8
 while iterations + 1 > currentIteration:
     while hunllefHP > 0 and playerHP > 0:
         while weaponCounter <= 5 and hunllefHP > 0 and playerHP > 0 and weapon == "staff":  # switch weapons while player and hunllef are alive
@@ -52,7 +55,7 @@ while iterations + 1 > currentIteration:
                 hunllefHitChance = random.randint(0, 10000)  # hunllef random roll for hitting
                 if tornadoChance > 58:  # tornado use chance, 58 is 5.8% chance
                     if hunllefHitChance < hunllefAcc:  # hunllef hit chance, 0000 is 00.00% chance for hit
-                        hunllefAttack = random.randint(0, 13)  # hunllef damage roll
+                        hunllefAttack = random.randint(0, hunllefMax)  # hunllef damage roll
                         playerHP = playerHP - hunllefAttack  # remove some player hp
 
             timer = timer + 2.4  # track kill time
@@ -74,7 +77,7 @@ while iterations + 1 > currentIteration:
                 hunllefHitChance = random.randint(0, 10000)
                 if tornadoChance > 58:  # tornado use chance, 58 is 5.8% chance
                     if hunllefHitChance < hunllefAcc:  # hunllef hit chance, 6363 is 63.63% chance for hit
-                        hunllefAttack = random.randint(0, 13)
+                        hunllefAttack = random.randint(0, hunllefMax)
                         playerHP = playerHP - hunllefAttack
             timer = timer + 2.4
         if playerHP <= 0:  # if player dies add player death count
