@@ -11,6 +11,7 @@ totalFish = int(input("Enter total fish: "))
 playerHP = 99 + totalFish * 20
 armorTier = int(input("Enter armor Tier(1, 2, or 3): "))
 iterations = int(input("How many iterations? "))
+gambit = int(input("Are you gambit flicking? (1 for yes, 0 for no): "))
 currentIteration = 0
 timer = 0
 deflectFlip = 0
@@ -26,16 +27,25 @@ if coinFlip == 1:
 if armorTier == 1:
     bowAcc = 6706
     staffAcc = 7044
+    if gambit == 1:
+        bowAcc = 10000-(10000-bowAcc)/1.08
+        staffAcc = 10000-(10000-staffAcc)/1.08
     hunllefAcc = 6491
     hunllefMax = 17
 if armorTier == 2:
     bowAcc = 6858
     staffAcc = 7172
+    if gambit == 1:
+        bowAcc = 10000-(10000-bowAcc)/1.08
+        staffAcc = 10000-(10000-staffAcc)/1.08
     hunllefAcc = 5605
     hunllefMax = 10
 if armorTier == 3:
     bowAcc = 6993
     staffAcc = 7290
+    if gambit == 1:
+        bowAcc = 10000-(10000-bowAcc)/1.08
+        staffAcc = 10000-(10000-staffAcc)/1.08
     hunllefAcc = 4741
     hunllefMax = 8
 while iterations + 1 > currentIteration:
