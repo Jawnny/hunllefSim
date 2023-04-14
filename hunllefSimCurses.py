@@ -26,17 +26,17 @@ if coinFlip == 1:
 if armorTier == 1:
     bowAcc = 6706
     staffAcc = 7044
-    hunllefAcc = 7450
+    hunllefAcc = 6491
     hunllefMax = 17
 if armorTier == 2:
     bowAcc = 6858
     staffAcc = 7172
-    hunllefAcc = 5080
+    hunllefAcc = 5605
     hunllefMax = 10
 if armorTier == 3:
     bowAcc = 6993
     staffAcc = 7290
-    hunllefAcc = 4205
+    hunllefAcc = 4741
     hunllefMax = 8
 while iterations + 1 > currentIteration:
     while hunllefHP > 0 and playerHP > 0:
