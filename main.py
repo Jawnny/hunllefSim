@@ -75,7 +75,7 @@ while iterations + 1 > currentIteration:
             if hunllefCounter >= 5:
                 hunllefCounter = hunllefCounter - 5
                 hunllefHitChance = random.randint(0, 10000)
-                if tornadoChance > 58:  # tornado use chance, 58 is 5.8% chance
+                if tornadoChance > 580:  # tornado use chance, 58 is 5.8% chance
                     if hunllefHitChance < hunllefAcc:  # hunllef hit chance, 6363 is 63.63% chance for hit
                         hunllefAttack = random.randint(0, hunllefMax)
                         playerHP = playerHP - hunllefAttack
