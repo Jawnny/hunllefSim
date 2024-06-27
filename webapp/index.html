@@ -5,63 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CG Simulator</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: -10px;
+        }
+        .input-container img {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Corrupted Gauntlet Simulator</h1>
     <form id="inputForm">
-        <input type="text" id="hpLevel" placeholder="HP Level">
-        <input type="text" id="rangeLevel" placeholder="Range Level">
-        <input type="text" id="mageLevel" placeholder="Mage Level">
-        <input type="text" id="defenseLevel" placeholder="Defense Level">
-        <input type="text" id="food count" placeholder="# of fish">
+        <div class="input-container">
+            <img src="assets/Hitpoints_icon.png" alt="HP Icon" style="width: 20px; height: auto;">
+            <input type="text" id="hpLevel" placeholder="HP Level">
+        </div>
+        <div class="input-container">
+            <img src="assets/Ranged_icon.png" alt="Range Icon" style="width: 20px; height: auto;">
+            <input type="text" id="rangeLevel" placeholder="Range Level">
+        </div>
+        <div class="input-container">
+            <img src="assets/Magic_icon.png" alt="Mage Icon" style="width: 20px; height: auto;">
+            <input type="text" id="mageLevel" placeholder="Mage Level">
+        </div>
+        <div class="input-container">
+            <img src="assets/Defence_icon.png" alt="Defense Icon" style="width: 20px; height: auto;">
+            <input type="text" id="defenseLevel" placeholder="Defense Level">
+        </div>
+        <div class="input-container">
+            <img src="assets/Paddlefish.png" alt="Food Icon" style="width: 20px; height: auto;">
+            <input type="text" id="foodCount" placeholder="# of fish">
+        </div>
         <div>
             <h2>Armor Tier</h2>
             <label>
-                <input type="radio" name="armorChoice" value="Tier 1" hidden>
+                <input type="radio" name="armorChoice" value="1" hidden>
                 <img src="assets/Corrupted_body_(basic).png" alt="T1" style="width: 50px; height: auto;">
             </label>
             <label>
-                <input type="radio" name="armorChoice" value="Tier 2" hidden>
-                <img src="Assets/Corrupted_body_(attuned).png" alt="T2" style="width: 50px; height: auto;">
+                <input type="radio" name="armorChoice" value="2" hidden>
+                <img src="assets/Corrupted_body_(attuned).png" alt="T2" style="width: 50px; height: auto;">
             </label>
             <label>
-                <input type="radio" name="armorChoice" value="Tier 3" hidden>
-                <img src="Assets/Corrupted_body_(perfected).png" alt="T3" style="width: 50px; height: auto;">
+                <input type="radio" name="armorChoice" value="3" hidden>
+                <img src="assets/Corrupted_body_(perfected).png" alt="T3" style="width: 50px; height: auto;">
             </label>
             <h2>Range Prayer</h2>
             <label>
-                <input type="radio" name="prayerRChoice" value="Rigour" hidden>
+                <input type="radio" name="prayerRChoice" value="1.23" hidden>
                 <img src="assets/Rigour.png" alt="Rigour" style="width: 50px; height: auto;">
             </label>
             <label>
-                <input type="radio" name="prayerRChoice" value="Eagle Eye" hidden>
-                <img src="Assets/Eagle_Eye.png" alt="Eagle" style="width: 50px; height: auto;">
+                <input type="radio" name="prayerRChoice" value="1.15" hidden>
+                <img src="assets/Eagle_Eye.png" alt="Eagle Eye" style="width: 50px; height: auto;">
             </label>
         </div>
         <div>
             <h2>Magic Prayer</h2>
             <label>
-                <input type="radio" name="prayerMChoice" value="Augury" hidden>
+                <input type="radio" name="prayerMChoice" value="1.25" hidden>
                 <img src="assets/Augury.png" alt="Augury" style="width: 50px; height: auto;">
             </label>
             <label>
-                <input type="radio" name="prayerMChoice" value="Mystic Might" hidden>
-                <img src="Assets/Mystic_Might.png" alt="Mystic" style="width: 50px; height: auto;">
+                <input type="radio" name="prayerMChoice" value="1.15" hidden>
+                <img src="assets/Mystic_Might.png" alt="Mystic Might" style="width: 50px; height: auto;">
             </label>
         </div>
         <div>
             <h2>Steel Skin?</h2>
             <label>
-                <input type="checkbox" id="optionalBuff" hidden>
-                <img src="Assets/Steel_Skin.png" alt="Steel Skin" style="width: 50px; height: auto;">
+                <input type="checkbox" id="optionalBuff" value="1.15" hidden>
+                <img src="assets/Steel_Skin.png" alt="Steel Skin" style="width: 50px; height: auto;">
             </label>
         </div>
-        <button type="button" onclick="sendData()">Submit</button>
+        <button type="button" id="simulateButton">Submit</button>
     </form>
     
-
     <div id="survivalOdds">
-        Your odds of survival are: <span id="survivalOddsValue">[Placeholder]</span>
+        Your odds of survival are: <span id="survivalOddsValue"> ? </span>
     </div>
 
     <div id="resultDisplay"></div>
