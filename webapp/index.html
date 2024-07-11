@@ -9,10 +9,18 @@
         .input-container {
             display: flex;
             align-items: center;
-            margin-bottom: -10px;
+            margin-bottom: 15px; /* Increased space between each input container */
         }
+
+        .input-container input {
+            margin-right: 10px; /* Space between the input and the icon */
+            padding: 5px; /* Padding inside the input field */
+            width: 150px; /* Width of the input field */
+        }
+
         .input-container img {
-            margin-right: 10px;
+            width: 20px;
+            height: auto;
         }
     </style>
 </head>
@@ -20,24 +28,32 @@
     <h1>Corrupted Gauntlet Simulator</h1>
     <form id="inputForm">
         <div class="input-container">
+            <input type="number" id="hpLevel" placeholder="HP Level" min="1" max="99">
             <img src="assets/Hitpoints_icon.png" alt="HP Icon" style="width: 20px; height: auto;">
-            <input type="text" id="hpLevel" placeholder="HP Level">
         </div>
         <div class="input-container">
+            <input type="number" id="attackLevel" placeholder="Attack Level" min="1" max="99">
+            <img src="assets/Attack_icon.png" alt="Attack Icon" style="width: 20px; height: auto;">
+        </div>
+        <div class="input-container">
+            <input type="number" id="strengthLevel" placeholder="Strength Level" min="1" max="99">
+            <img src="assets/Strength_icon.png" alt="Strength Icon" style="width: 20px; height: auto;">
+        </div>
+        <div class="input-container">
+            <input type="number" id="rangeLevel" placeholder="Range Level" min="1" max="99">
             <img src="assets/Ranged_icon.png" alt="Range Icon" style="width: 20px; height: auto;">
-            <input type="text" id="rangeLevel" placeholder="Range Level">
         </div>
         <div class="input-container">
+            <input type="number" id="mageLevel" placeholder="Mage Level" min="1" max="99">
             <img src="assets/Magic_icon.png" alt="Mage Icon" style="width: 20px; height: auto;">
-            <input type="text" id="mageLevel" placeholder="Mage Level">
         </div>
         <div class="input-container">
+            <input type="number" id="defenseLevel" placeholder="Defense Level" min="1" max="99">
             <img src="assets/Defence_icon.png" alt="Defense Icon" style="width: 20px; height: auto;">
-            <input type="text" id="defenseLevel" placeholder="Defense Level">
         </div>
         <div class="input-container">
+            <input type="number" id="foodCount" placeholder="# of fish" min="1" max="25">
             <img src="assets/Paddlefish.png" alt="Food Icon" style="width: 20px; height: auto;">
-            <input type="text" id="foodCount" placeholder="# of fish">
         </div>
         <div>
             <h2>Armor Tier</h2>
@@ -53,32 +69,55 @@
                 <input type="radio" name="armorChoice" value="3" hidden>
                 <img src="assets/Corrupted_body_(perfected).png" alt="T3" style="width: 50px; height: auto;">
             </label>
-            <h2>Range Prayer</h2>
-            <label>
-                <input type="radio" name="prayerRChoice" value="1.23" hidden>
-                <img src="assets/Rigour.png" alt="Rigour" style="width: 50px; height: auto;">
-            </label>
+            <h2>Range Prayers</h2>
             <label>
                 <input type="radio" name="prayerRChoice" value="1.15" hidden>
                 <img src="assets/Eagle_Eye.png" alt="Eagle Eye" style="width: 50px; height: auto;">
             </label>
+            <label>
+                <input type="radio" name="prayerRChoice" value="1.25" hidden>
+                <img src="assets/Rigour.png" alt="Rigour" style="width: 50px; height: auto;">
+            </label>
         </div>
         <div>
-            <h2>Magic Prayer</h2>
-            <label>
-                <input type="radio" name="prayerMChoice" value="1.25" hidden>
-                <img src="assets/Augury.png" alt="Augury" style="width: 50px; height: auto;">
-            </label>
+            <h2>Magic Prayers</h2>
             <label>
                 <input type="radio" name="prayerMChoice" value="1.15" hidden>
                 <img src="assets/Mystic_Might.png" alt="Mystic Might" style="width: 50px; height: auto;">
             </label>
+            <label>
+                <input type="radio" name="prayerMChoice" value="1.25" hidden>
+                <img src="assets/Augury.png" alt="Augury" style="width: 50px; height: auto;">
+            </label>
         </div>
         <div>
-            <h2>Steel Skin?</h2>
+            <h2>Melee Prayers</h2>
             <label>
-                <input type="checkbox" id="optionalBuff" value="1.15" hidden>
+                <input type="radio" name="prayerMeChoice" value="1.25" hidden>
+                <img src="assets/Piety.png" alt="Piety" style="width: 50px; height: auto;">
+            </label>
+            <label>
+                <input type="radio" name="prayerMeChoice" value="1.15" hidden>
+                <img src="assets/Ultimate_reflexes.png" alt="UltRef" style="width: 50px; height: auto;">
+            </label>
+            <label>
+                <input type="checkbox" id="steelSkin" value="true" hidden>
                 <img src="assets/Steel_Skin.png" alt="Steel Skin" style="width: 50px; height: auto;">
+            </label>
+        </div>
+        <div>
+            <h2>Weapon Selection</h2>
+            <label>
+                <input type="checkbox" class="weapon-checkbox" id="halberd" value="true" hidden>
+                <img src="assets/halberd.png" alt="halberd" style="width: 50px; height: auto;">
+            </label>
+            <label>
+                <input type="checkbox" class="weapon-checkbox" id="bow" value="true" hidden>
+                <img src="assets/bow.png" alt="bow" style="width: 50px; height: auto;">
+            </label>
+            <label>
+                <input type="checkbox" class="weapon-checkbox" id="staff" value="true" hidden>
+                <img src="assets/staff.png" alt="staff" style="width: 50px; height: auto;">
             </label>
         </div>
         <button type="button" id="simulateButton">Submit</button>
@@ -89,7 +128,29 @@
     </div>
 
     <div id="resultDisplay"></div>
-
+    <script>
+        window.onload = () => {
+            // Reset all number inputs to empty on page load
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.value = '';
+            });
+    
+            // Deselect all weapon checkboxes on page load
+            document.querySelectorAll('.weapon-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        };
+    
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value !== '') {
+                    let value = parseInt(input.value);
+                    if (value < 1) input.value = 1;
+                    if (value > 99) input.value = 99;
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

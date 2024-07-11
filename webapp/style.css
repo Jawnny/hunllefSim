@@ -1,7 +1,8 @@
 body{
     background-color: #000000;
     width: 1000px;
-    margin-top: -13px;
+    margin-top: -20px;
+    margin-left: -10px;
     padding-bottom: 50px;
     padding-left: 30px;
 }
@@ -9,7 +10,9 @@ body{
 h1 {
     font-family: 'Times New Roman', Times, serif, sans-serif;
     margin: 20px left;
-    width: 30%;
+    margin-bottom: -5px;
+    margin-top: -10px;
+    width: 50%;
     padding: 20px;
     color: #ffffff;
 }
@@ -73,4 +76,36 @@ input[type="checkbox"]:not(:checked) + img {
     margin-left: 20px;
     font-size: 30px;
     color: #ffffff;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Increased space between each input container */
+    margin-left: 20px;
+}
+
+.input-container input {
+    margin-right: 10px; /* Space between the input and the icon */
+    padding: 5px; /* Padding inside the input field */
+    width: 150px; /* Width of the input field */
+}
+
+.input-container img {
+    width: 20px;
+    height: auto;
+}
+
+#simulateButton {
+    position: relative; /* or 'absolute' if you prefer */
+    top: -80px;
+    left: 270px;
+    margin: 10px; /* Optional: add some margin if you want it slightly away from the corner */
+}
+
+#survivalOdds {
+    position: relative; /* or 'absolute' if you prefer */
+    top: -130px;
+    left: 450px;
+    margin: 10px;  /* Optional: add some margin if you want it slightly away from the corner */
 }
